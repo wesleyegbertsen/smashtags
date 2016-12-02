@@ -56,6 +56,7 @@ class MentionsTableViewController: UITableViewController {
         static let KeywordsCellReuseIdentifier = "Keywords Cell"
         static let ImagesCellReuseIdentifier = "Image Cell"
         static let KeywordsSegueIdentifier = "Show tweets from keyword"
+        static let ImageSegueIdentifier = "Show Tweet Image"
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -81,9 +82,6 @@ class MentionsTableViewController: UITableViewController {
                 cell.imageUrl = url
                 return cell
         }
-
-        // Configure the cell...
-
         
     }
 
@@ -101,6 +99,19 @@ class MentionsTableViewController: UITableViewController {
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == Storyboard.KeywordsSegueIdentifier {
+            if let keywordCell = sender as? UITableViewCell {
+                let url = keywordCell.textLabel?.text
+                if  url != nil && url!.hasPrefix("http") {
+                    UIApplication.sharedApplication().openURL(NSURL(string: url!)!)
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destination = segue.destinationViewController as? UIViewController
         if let uinc = destination as? UINavigationController {
@@ -112,6 +123,19 @@ class MentionsTableViewController: UITableViewController {
                 case Storyboard.KeywordsSegueIdentifier:
                     if let keywordCell = sender as? UITableViewCell {
                         ttvc.searchText = keywordCell.textLabel?.text
+                    }
+                default:
+                    break
+                }
+            }
+        }
+        if let ivc = destination as? ImageViewController {
+            if let identifier = segue.identifier {
+                switch identifier {
+                case Storyboard.ImageSegueIdentifier:
+                    if let imageCell = sender as? MentionsImageTableViewCell {
+                        ivc.imageURL = imageCell.imageUrl
+                        ivc.title = "Image"
                     }
                 default:
                     break

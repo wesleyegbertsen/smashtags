@@ -110,12 +110,12 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kxR-JE-XGP" id="cw8-ee-4DA">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i2h-nw-b2o">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="156"/>
-                                        </imageView>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mZc-PX-vGC">
                                             <rect key="frame" x="290" y="68" width="20" height="20"/>
                                         </activityIndicatorView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i2h-nw-b2o">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="156"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="i2h-nw-b2o" firstAttribute="leading" secondItem="cw8-ee-4DA" secondAttribute="leading" id="Dkq-An-H83"/>
@@ -129,6 +129,7 @@
                                 <connections>
                                     <outlet property="spinner" destination="mZc-PX-vGC" id="57E-hx-hhd"/>
                                     <outlet property="tweetImage" destination="i2h-nw-b2o" id="IVm-6S-Sqe"/>
+                                    <segue destination="jjx-Yy-TaZ" kind="show" identifier="Show Tweet Image" id="un7-Im-KNA"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Keywords Cell" textLabel="uzE-id-9WN" style="IBUITableViewCellStyleDefault" id="EWS-V1-phu">
@@ -176,6 +177,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zWK-rN-q2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="143" y="347"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="A09-mp-bG2">
+            <objects>
+                <viewController id="jjx-Yy-TaZ" customClass="ImageViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FzS-Aw-gAu"/>
+                        <viewControllerLayoutGuide type="bottom" id="YE6-J7-LYQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dVV-Ky-0tH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60P-Un-g1p">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Nnc-Gn-5ow">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="60P-Un-g1p" firstAttribute="bottom" secondItem="YE6-J7-LYQ" secondAttribute="top" id="3kH-qR-5F1"/>
+                            <constraint firstAttribute="centerX" secondItem="Nnc-Gn-5ow" secondAttribute="centerX" id="4D5-uj-3fX"/>
+                            <constraint firstItem="60P-Un-g1p" firstAttribute="top" secondItem="dVV-Ky-0tH" secondAttribute="top" id="M7x-FD-4rO"/>
+                            <constraint firstItem="60P-Un-g1p" firstAttribute="leading" secondItem="dVV-Ky-0tH" secondAttribute="leading" id="bLM-bk-BZE"/>
+                            <constraint firstAttribute="trailing" secondItem="60P-Un-g1p" secondAttribute="trailing" id="d0R-CU-8gg"/>
+                            <constraint firstAttribute="centerY" secondItem="Nnc-Gn-5ow" secondAttribute="centerY" id="edd-0y-9bF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="60P-Un-g1p" id="uqQ-2v-zlf"/>
+                        <outlet property="spinner" destination="Nnc-Gn-5ow" id="0HG-iH-fSH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dfK-uU-gca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2634" y="347"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -20,6 +20,7 @@
 		8B5B7B741DEF884500F1FD8C /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B7B701DEF884500F1FD8C /* TwitterRequest.swift */; };
 		8B5B7B751DEF884500F1FD8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B7B711DEF884500F1FD8C /* User.swift */; };
 		8B5B7B771DEF8FE300F1FD8C /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B7B761DEF8FE300F1FD8C /* TweetTableViewCell.swift */; };
+		8BF2C8791DF22E7A004AB1B9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2C8781DF22E7A004AB1B9 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		8B5B7B701DEF884500F1FD8C /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
 		8B5B7B711DEF884500F1FD8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B5B7B761DEF8FE300F1FD8C /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		8BF2C8781DF22E7A004AB1B9 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				8B5B7B4F1DEF862500F1FD8C /* Main.storyboard */,
+				8BF2C8781DF22E7A004AB1B9 /* ImageViewController.swift */,
 				8B4AA5FB1DF1D706000C7C13 /* MentionsImageTableViewCell.swift */,
 				8B4AA5F91DF1D431000C7C13 /* MentionsTableViewController.swift */,
 				8B5B7B761DEF8FE300F1FD8C /* TweetTableViewCell.swift */,
@@ -243,6 +246,7 @@
 			files = (
 				8B4AA5FA1DF1D431000C7C13 /* MentionsTableViewController.swift in Sources */,
 				8B5B7B4C1DEF862500F1FD8C /* AppDelegate.swift in Sources */,
+				8BF2C8791DF22E7A004AB1B9 /* ImageViewController.swift in Sources */,
 				8B4AA5FC1DF1D706000C7C13 /* MentionsImageTableViewCell.swift in Sources */,
 				8B5B7B741DEF884500F1FD8C /* TwitterRequest.swift in Sources */,
 				8B5B7B751DEF884500F1FD8C /* User.swift in Sources */,
