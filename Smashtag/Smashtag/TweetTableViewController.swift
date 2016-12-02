@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension Tweet {
+    var hasMentions: Bool {
+        if hashtags.isEmpty && urls.isEmpty && userMentions.isEmpty && media.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
 class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     var tweets = [[Tweet]]()
@@ -67,6 +77,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
                             self.tableView.reloadData()
                         }
                         sender?.endRefreshing()
+                        self.title = self.searchText
                     }
                 }
             }
@@ -103,11 +114,12 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     
     private struct Storyboard {
-        static let CellReuseidentifier = "Tweet"
+        static let CellReuseIdentifier = "Tweet"
+        static let ShowMentionsIdentifier = "Show Mentions"
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseidentifier, forIndexPath: indexPath) as! TweetTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! TweetTableViewCell
 
         // Configure the cell...
         cell.tweet = tweets[indexPath.section][indexPath.row]
@@ -115,7 +127,39 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         return cell
     }
     
-
+    // MARK: Segue logics
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        //Don't segue to mentions MVC if it has no mentions to show
+        if identifier == Storyboard.ShowMentionsIdentifier {
+            if let tweetCell = sender as? TweetTableViewCell {
+                if !tweetCell.tweet!.hasMentions {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let uinc = destination as? UINavigationController {
+            destination = uinc.visibleViewController
+        }
+        if let mtvc = destination as? MentionsTableViewController {
+            if let identifier = segue.identifier {
+                switch identifier {
+                case Storyboard.ShowMentionsIdentifier:
+                    if let tweetCell = sender as? TweetTableViewCell {
+                        mtvc.tweet = tweetCell.tweet
+                    }
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
