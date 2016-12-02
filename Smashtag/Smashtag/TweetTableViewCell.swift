@@ -8,9 +8,34 @@
 
 import UIKit
 
+private extension NSMutableAttributedString {
+    // returns self to enable method chaining
+    func addTweetColors(indexedKeyWords: [Tweet.IndexedKeyword], color: UIColor) -> NSMutableAttributedString {
+        for keyword in indexedKeyWords {
+            self.addAttribute(NSForegroundColorAttributeName, value: color, range: keyword.nsrange)
+        }
+        return self
+    }
+}
+
 class TweetTableViewCell: UITableViewCell {
     
     var tweet: Tweet? {
+        didSet {
+            updateUI()
+        }
+    }
+    var hashtagColor = UIColor.blueColor() {
+        didSet {
+            updateUI()
+        }
+    }
+    var urlColor = UIColor.brownColor(){
+        didSet {
+            updateUI()
+        }
+    }
+    var userColor = UIColor.grayColor(){
         didSet {
             updateUI()
         }
@@ -19,21 +44,24 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var tweetProfileImageView: UIImageView!
     @IBOutlet weak var tweetScreenNameLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var tweetCreatedLabel: UILabel!
     
     func updateUI() {
         //reset any existing tweet information
         tweetTextLabel?.attributedText = nil
         tweetScreenNameLabel?.text = nil
         tweetProfileImageView?.image = nil
-        //tweetCreatedLabel?.text = nil
+        tweetCreatedLabel?.text = nil
 
         if let tweet = self.tweet {
-            tweetTextLabel?.text = tweet.text
-            if tweetTextLabel?.text != nil {
-                for _ in tweet.media {
-                    tweetTextLabel.text! += " 📷"
-                }
+            var text = tweet.text
+            for _ in tweet.media {
+                text += " 📷"
             }
+            tweetTextLabel.attributedText = NSMutableAttributedString(string: text)
+                .addTweetColors(tweet.hashtags, color: hashtagColor)
+                .addTweetColors(tweet.urls, color: urlColor)
+                .addTweetColors(tweet.userMentions, color: userColor)
             
             tweetScreenNameLabel?.text = "\(tweet.user)" //tweet.user.description
             
@@ -43,15 +71,16 @@ class TweetTableViewCell: UITableViewCell {
                 }
             }
             
-//            let formatter = NSDateFormatter()
-//            if NSDate.timeIntervalSinceDate(tweet.created) > 24*60*60 {
-//                formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-//            } else {
-//                formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-//            }
-//            tweetCreatedLabel?.text = formatter.stringFromDate(tweet.created)
+            let formatter = NSDateFormatter()
+            if NSDate().timeIntervalSinceDate(tweet.created) > 24*60*60 {
+                formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            } else {
+                formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            }
+            tweetCreatedLabel?.text = formatter.stringFromDate(tweet.created)
         }
         
     }
+    
     
 }

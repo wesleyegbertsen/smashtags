@@ -44,9 +44,17 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-Xc-do6">
+                                            <rect key="frame" x="8" y="64" width="48" height="14"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="fm9-Xc-do6" firstAttribute="top" secondItem="onq-mv-a43" secondAttribute="bottom" constant="8" symbolic="YES" id="0Ft-tP-qfo"/>
                                         <constraint firstItem="2tS-rV-flh" firstAttribute="trailing" secondItem="T7N-ae-uDP" secondAttribute="trailingMargin" id="1ko-fV-5dp"/>
+                                        <constraint firstItem="fm9-Xc-do6" firstAttribute="leading" secondItem="T7N-ae-uDP" secondAttribute="leadingMargin" id="8qa-60-3YN"/>
                                         <constraint firstItem="wVB-Oa-J6D" firstAttribute="leading" secondItem="2tS-rV-flh" secondAttribute="leading" id="F6w-Ow-jke"/>
                                         <constraint firstItem="wVB-Oa-J6D" firstAttribute="trailing" secondItem="T7N-ae-uDP" secondAttribute="trailingMargin" id="Hqq-Ad-flT"/>
                                         <constraint firstItem="2tS-rV-flh" firstAttribute="top" secondItem="T7N-ae-uDP" secondAttribute="topMargin" id="PDJ-Je-q6K"/>
@@ -54,10 +62,12 @@
                                         <constraint firstItem="2tS-rV-flh" firstAttribute="leading" secondItem="onq-mv-a43" secondAttribute="trailing" constant="8" id="Ygm-NG-7xj"/>
                                         <constraint firstItem="wVB-Oa-J6D" firstAttribute="top" secondItem="2tS-rV-flh" secondAttribute="bottom" constant="8" id="dfP-g9-1aL"/>
                                         <constraint firstItem="onq-mv-a43" firstAttribute="leading" secondItem="T7N-ae-uDP" secondAttribute="leadingMargin" id="hP8-4c-gzV"/>
+                                        <constraint firstItem="wVB-Oa-J6D" firstAttribute="leading" secondItem="fm9-Xc-do6" secondAttribute="trailing" constant="8" symbolic="YES" id="j6i-8V-lbe"/>
                                         <constraint firstItem="wVB-Oa-J6D" firstAttribute="bottom" secondItem="T7N-ae-uDP" secondAttribute="bottomMargin" id="mKr-TW-lvq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="tweetCreatedLabel" destination="fm9-Xc-do6" id="QnX-im-7uq"/>
                                     <outlet property="tweetProfileImageView" destination="onq-mv-a43" id="MHn-Jf-0bU"/>
                                     <outlet property="tweetScreenNameLabel" destination="2tS-rV-flh" id="tWI-6r-QER"/>
                                     <outlet property="tweetTextLabel" destination="wVB-Oa-J6D" id="tKP-DY-ow2"/>
