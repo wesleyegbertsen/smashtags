@@ -22,7 +22,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     var tweets = [[Tweet]]()
     
-    var searchText: String? = "#overwatch" {
+    var searchText: String? = "#soccer" {
         didSet {
             lastSuccesfulRequest = nil
             searchTextField?.text = searchText
@@ -128,18 +128,6 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     // MARK: Segue logics
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        //Don't segue to mentions MVC if it has no mentions to show
-        if identifier == Storyboard.ShowMentionsIdentifier {
-            if let tweetCell = sender as? TweetTableViewCell {
-                if !tweetCell.tweet!.hasMentions {
-                    return false
-                }
-            }
-        }
-        return true
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destination = segue.destinationViewController as? UIViewController
