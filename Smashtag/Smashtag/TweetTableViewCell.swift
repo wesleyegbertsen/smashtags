@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Extension is created so there is no redundancy with the for loop
 private extension NSMutableAttributedString {
     // returns self to enable method chaining
     func addTweetColors(indexedKeyWords: [Tweet.IndexedKeyword], color: UIColor) -> NSMutableAttributedString {
