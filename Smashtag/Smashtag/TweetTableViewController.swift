@@ -8,16 +8,6 @@
 
 import UIKit
 
-extension Tweet {
-    var hasMentions: Bool {
-        if hashtags.isEmpty && urls.isEmpty && userMentions.isEmpty && media.isEmpty {
-            return false
-        } else {
-            return true
-        }
-    }
-}
-
 class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     var tweets = [[Tweet]]()
