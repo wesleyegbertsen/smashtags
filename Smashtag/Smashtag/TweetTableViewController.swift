@@ -67,7 +67,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
                             self.tableView.reloadData()
                         }
                         sender?.endRefreshing()
-                        self.title = self.searchText
+                        self.navigationItem.title = self.searchText
+                        SearchHistory().add(self.searchText!)
                     }
                 }
             }

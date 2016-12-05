@@ -12,7 +12,7 @@ class MentionsTableViewController: UITableViewController {
 
     var tweet: Tweet? {
         didSet {
-            title = tweet!.user.screenName
+            navigationItem.title = tweet!.user.screenName
             if !tweet!.media.isEmpty {
                 menstionsSections.append(MentionsSections(header: "Images", mentions: tweet!.media.map { Mention.Image($0.url, $0.aspectRatio) }))
             }
@@ -99,6 +99,8 @@ class MentionsTableViewController: UITableViewController {
         }
     }
     
+    // MARK: Segue logics
+    
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         if identifier == Storyboard.KeywordsSegueIdentifier {
             if let keywordCell = sender as? UITableViewCell {
@@ -135,7 +137,7 @@ class MentionsTableViewController: UITableViewController {
                 case Storyboard.ImageSegueIdentifier:
                     if let imageCell = sender as? MentionsImageTableViewCell {
                         ivc.imageURL = imageCell.imageUrl
-                        ivc.title = "Image"
+                        ivc.navigationItem.title = "Image"
                     }
                 default:
                     break

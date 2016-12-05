@@ -21,6 +21,8 @@
 		8B5B7B751DEF884500F1FD8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B7B711DEF884500F1FD8C /* User.swift */; };
 		8B5B7B771DEF8FE300F1FD8C /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B7B761DEF8FE300F1FD8C /* TweetTableViewCell.swift */; };
 		8BF2C8791DF22E7A004AB1B9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2C8781DF22E7A004AB1B9 /* ImageViewController.swift */; };
+		8BF2C87B1DF5DB2F004AB1B9 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2C87A1DF5DB2F004AB1B9 /* SearchHistory.swift */; };
+		8BF2C87F1DF5DFD8004AB1B9 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2C87E1DF5DFD8004AB1B9 /* HistoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		8B5B7B711DEF884500F1FD8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B5B7B761DEF8FE300F1FD8C /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		8BF2C8781DF22E7A004AB1B9 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		8BF2C87A1DF5DB2F004AB1B9 /* SearchHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
+		8BF2C87E1DF5DFD8004AB1B9 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 				8B4AA5F91DF1D431000C7C13 /* MentionsTableViewController.swift */,
 				8B5B7B761DEF8FE300F1FD8C /* TweetTableViewCell.swift */,
 				8B5B7B6B1DEF873300F1FD8C /* TweetTableViewController.swift */,
+				8BF2C87E1DF5DFD8004AB1B9 /* HistoryTableViewController.swift */,
+				8BF2C87A1DF5DB2F004AB1B9 /* SearchHistory.swift */,
 				8B5B7B6D1DEF884500F1FD8C /* Twitter */,
 				8B5B7B491DEF862500F1FD8C /* Supporting Files */,
 			);
@@ -244,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF2C87B1DF5DB2F004AB1B9 /* SearchHistory.swift in Sources */,
 				8B4AA5FA1DF1D431000C7C13 /* MentionsTableViewController.swift in Sources */,
 				8B5B7B4C1DEF862500F1FD8C /* AppDelegate.swift in Sources */,
 				8BF2C8791DF22E7A004AB1B9 /* ImageViewController.swift in Sources */,
@@ -251,6 +258,7 @@
 				8B5B7B741DEF884500F1FD8C /* TwitterRequest.swift in Sources */,
 				8B5B7B751DEF884500F1FD8C /* User.swift in Sources */,
 				8B5B7B6C1DEF873300F1FD8C /* TweetTableViewController.swift in Sources */,
+				8BF2C87F1DF5DFD8004AB1B9 /* HistoryTableViewController.swift in Sources */,
 				8B5B7B721DEF884500F1FD8C /* MediaItem.swift in Sources */,
 				8B5B7B731DEF884500F1FD8C /* Tweet.swift in Sources */,
 				8B5B7B771DEF8FE300F1FD8C /* TweetTableViewCell.swift in Sources */,
